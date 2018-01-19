@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-netto",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cordova plugin for accessing network usage stats.",
   "cordova": {
     "id": "cordova-plugin-netto",
