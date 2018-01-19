@@ -14,11 +14,6 @@
 
 @implementation Netto
 
-static NSString *const DataCounterKeyWWANSent = @"WWANSent";
-static NSString *const DataCounterKeyWWANReceived = @"WWANReceived";
-static NSString *const DataCounterKeyWiFiSent = @"WiFiSent";
-static NSString *const DataCounterKeyWiFiReceived = @"WiFiReceived";
-
 static NSString *const DataCounterKeyRxBytes = @"receivedBytes";
 static NSString *const DataCounterKeyTxBytes = @"transmittedBytes";
 static NSString *const DataCounterKeyTotalBytes = @"totalBytes";
@@ -33,8 +28,6 @@ NSDictionary *TrafficCounter(NSString *InitialRx, NSString *InitialTx, NSString 
     struct ifaddrs *addrs;
     const struct ifaddrs *cursor;
 
-//    NSNumber *InitialRxBytes = @([InitialRx intValue]);
-   //NSInteger InitialRxBytes = [InitialRx integerValue];
     u_int32_t InitialRxBytes    = [InitialRx intValue];
     u_int32_t InitialTxBytes    = [InitialTx intValue];
     u_int32_t InitialTotalBytes = [InitialTotal intValue];
@@ -111,25 +104,15 @@ NSDictionary *TrafficCounter(NSString *InitialRx, NSString *InitialTx, NSString 
              DataCounterKeyRxBytes:[NSNumber numberWithUnsignedInt:RxBytes],
              DataCounterKeyTxBytes:[NSNumber numberWithUnsignedInt:TxBytes],
              DataCounterKeyTotalBytes:[NSNumber numberWithUnsignedInt:TotalBytes]
-             // DataCounterKeyWiFiSent:[NSNumber numberWithUnsignedInt:WiFiSent],
-             // DataCounterKeyWiFiReceived:[NSNumber numberWithUnsignedInt:WiFiReceived],
-             // DataCounterKeyWWANSent:[NSNumber numberWithUnsignedInt:WWANSent],
-             // DataCounterKeyWWANReceived:[NSNumber numberWithUnsignedInt:WWANReceived]
     };
 }
 
-/**
- * Plugin methods are executed on the UI thread.
- * If your plugin requires a non-trivial amount of processing or requires a blocking call,
- * you should make use of a background thread.
- */
 - (void) traffic:(CDVInvokedUrlCommand*)command {
 
     [self.commandDelegate runInBackground:^{
         NSString *callbackId = [command callbackId];
         CDVPluginResult* result = nil;
 
-        //    NSNumber* msg = [command.arguments objectAtIndex:1];
         NSString *InitialRxBytes = [command.arguments objectAtIndex:0];
         NSString *InitialTxBytes = [command.arguments objectAtIndex:1];
         NSString *InitialTotalBytes = [command.arguments objectAtIndex:2];
