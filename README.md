@@ -1,6 +1,10 @@
 # 🌙🦉 Cordova Netto Plugin
 Cordova plugin for keeping a watchful eye on network usage stats.
 
+## Purpose
+
+Netto returns an app's data usage (in bytes) since it was first launched. Data usage statistics will be reset when the app is killed.
+
 ## Installation
 
     cordova plugin add cordova-netto-plugin
@@ -12,7 +16,7 @@ Cordova plugin for keeping a watchful eye on network usage stats.
     
 ## Properties
 
-- netto.traffic
+- Netto.traffic
 
 ### Example
 

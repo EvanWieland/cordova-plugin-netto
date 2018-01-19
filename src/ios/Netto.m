@@ -108,7 +108,6 @@ NSDictionary *TrafficCounter(NSString *InitialRx, NSString *InitialTx, NSString 
 }
 
 - (void) traffic:(CDVInvokedUrlCommand*)command {
-
     [self.commandDelegate runInBackground:^{
         NSString *callbackId = [command callbackId];
         CDVPluginResult* result = nil;
