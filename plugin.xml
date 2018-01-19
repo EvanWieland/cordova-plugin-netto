@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-netto" version="1.0.0">
+    <name>Netto</name>
+    <description>Cordova plugin for accessing network usage stats.</description>
+    <license>MIT</license>
+    <keywords>cordova, netto</keywords>
+    <repo>https://github.com/EvanWieland/cordova-plugin-netto.git</repo>
+
+    <js-module src="www/Netto.js" name="Netto">
+        <clobbers target="window.Netto"/>
+    </js-module>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+
+    <!-- iOS -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/widget">
+            <feature name="netto">
+                <param name="ios-package" value="Netto"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/Netto.h" target-dir="Netto"/>
+        <source-file src="src/ios/Netto.m" target-dir="Netto"/>
+    </platform>
+
+
+    <!-- Android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Netto">
+                <param name="android-package" value="io.bistmithy.netto.Netto"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        </config-file>
+
+        <source-file src="src/android/Netto.java" target-dir="src/io/bistmithy/netto"/>
+    </platform>
+</plugin>
