@@ -21,17 +21,17 @@ Netto returns an app's data usage (in bytes) since it was first launched. Data u
 ### Example
 
 ```js
-const pad           = paddy(4, '👻');
-const simplePhrase  = `${pad}I love simple tabs!`;
-const complexPhrase = `${pad}I love ghost tabs!`;
-
-console.log(simplePhrase);  // "    I love simple tabs!"
-console.log(complexPhrase); // "👻👻👻👻I love ghost tabs!"
+Netto.traffic(
+    function(traffic){
+        // traffic returns: 
+        // {
+        // receivedBytes: 103424, 
+        // transmittedBytes: 6144, 
+        // totalBytes: 109568
+        // }
+    },
+    function(error){
+        console.error(error); // Returns error
+    }
+);
 ```
-
-// Code... TEMP!
-
-function paddy(padLength, padEntity){
-  // Create a sting padding of desired length and set the desired entity (or default to ' ').
-  return new Array((padLength || 0) + 1).join(padEntity || ' ');
-}
