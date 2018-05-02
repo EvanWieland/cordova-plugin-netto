@@ -31,7 +31,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Netto">
-                <param name="android-package" value="io.bistmithy.netto.Netto"/>
+                <param name="android-package" value="io.bitsmithy.netto.Netto"/>
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
@@ -39,6 +39,6 @@
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
         </config-file>
 
-        <source-file src="src/android/Netto.java" target-dir="src/io/bistmithy/netto"/>
+        <source-file src="src/android/Netto.java" target-dir="src/io/bitsmithy/netto"/>
     </platform>
 </plugin>
